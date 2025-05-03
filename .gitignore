@@ -1,0 +1,35 @@
+# Maven target directory
+/target/
+
+# Maven local repository cache
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse/IntelliJ IDEA project files (optional)
+*.iml
+.idea/
+*.ipr
+*.iws
+*.classpath
+*.project
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Java class files
+*.class
+
+# Compiled binary files
+*.jar
+*.war
+*.ear
+
+# VS Code settings
+.vscode/
