@@ -1,19 +1,36 @@
 package com.examly;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.lang.reflect.Modifier;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest {
 
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+    public void testEyewearClassExists() {
+        assertDoesNotThrow(() -> Class.forName("com.examly.entity.Eyewear"),
+                "Eyewear class should exist in com.examly.entity");
+    }    
+
+    @Test
+    public void testEyewearServiceExists() {
+        assertDoesNotThrow(() -> Class.forName("com.examly.service.EyewearService"),
+                "EyewearService should exist in com.examly.dao");
     }
+
+    @Test
+    public void testEyewearServiceImplExists() {
+        assertDoesNotThrow(() -> Class.forName("com.examly.service.EyewearServiceImpl"),
+                "EyewearServiceImpl should exist in com.examly.dao");
+    }
+
+    @Test
+    public void testBookRepositoryImplIsConcrete() throws Exception {
+        Class<?> impl = Class.forName("com.examly.service.EyewearServiceImpl");
+        assertFalse(Modifier.isAbstract(impl.getModifiers()), "EyewearServiceImpl must be a concrete class");
+    }
+
+    
 }
