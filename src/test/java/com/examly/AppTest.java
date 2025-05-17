@@ -27,10 +27,22 @@ public class AppTest {
     }
 
     @Test
+    public void testDBConnectionUtilExists(){
+        assertDoesNotThrow(() -> Class.forName("com.examly.util.DBConnectionUtil"),
+                "DBConnectionUtil should exixt in com.examly.util");      
+    }
+
+    @Test
     public void testBookRepositoryImplIsConcrete() throws Exception {
         Class<?> impl = Class.forName("com.examly.service.EyewearServiceImpl");
         assertFalse(Modifier.isAbstract(impl.getModifiers()), "EyewearServiceImpl must be a concrete class");
     }
 
-    
+    @Test
+    public void testMainModuleExists(){
+        assertDoesNotThrow(() -> Class.forName("com.examly.MainModule"),
+                "MainModule should exist in com.examly.MainModule");  
+    }
+
+
 }
